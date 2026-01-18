@@ -2,7 +2,10 @@ import asyncio
 from langchain.agents import create_agent
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from src.config.model import main_agent_model
-from src.prompts.main_agent_prompt import get_main_agent_prompt
+from src.prompts.working_instruction_prompt import get_working_instruction_prompt
+from src.prompts.user_profile import get_user_profile
+from src.meta_prompt import get_meta_prompt
+from src.tools.subagents import call_financial_news_agent
 
 
 # Load MCP tools (requires blocking I/O)
@@ -32,6 +35,7 @@ mcp_tools = _get_mcp_tools()
 # Create and export agent for LangGraph with MCP tools
 agent = create_agent(
     model=main_agent_model,
-    system_prompt=get_main_agent_prompt(),
-    tools=mcp_tools
+    system_prompt=get_meta_prompt() + get_working_instruction_prompt() + get_user_profile(),
+    tools=mcp_tools + [call_financial_news_agent],
+    # debug=True
 )
