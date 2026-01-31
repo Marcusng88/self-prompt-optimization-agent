@@ -2,7 +2,7 @@ def get_user_profile()-> str:
     prompt = (
         """
         # USER PROFILE (LOCAL)
-        *Last updated: 31/01/2026, 23:14:00*
+        *Last updated: [timestamp]*
 
         ## Identity
         - Preferred name:
@@ -26,12 +26,9 @@ def get_user_profile()-> str:
         - Planning style:
         - Reminders:
 
-        ## Dietary Preferences
-        - Dislikes:
-
         ## Interests
         - Sports teams:
-        - Hobbies: Badminton (Strong interest in Viktor Axelsen's style and results)
+        - Hobbies:
         - Foods:
 
         ## Tech Stack
@@ -49,7 +46,7 @@ def get_user_profile()-> str:
         - Repeated corrections:
 
         ## Notes
-        - Has 1 brother and 1 sister.\n        - [Freeform]
+        - [Freeform]
         """
     )
     return prompt

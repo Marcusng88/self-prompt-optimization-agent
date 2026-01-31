@@ -208,3 +208,8 @@ __marimo__/
 
 # LangGraph
 .langgraph_api/
+
+# Local prompts (generated from templates on first run)
+src/prompts/working_instruction_prompt.py
+src/prompts/user_profile.py
+src/prompts/financial_news_agent_prompt.py
