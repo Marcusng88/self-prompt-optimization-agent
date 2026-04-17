@@ -4,6 +4,18 @@ def get_user_profile()-> str:
         # USER PROFILE (LOCAL)
         *Last updated: [timestamp]*
 
+        ## Entry Format
+        - Value:
+        - Evidence:
+        - Confidence (low/medium/high):
+        - Last confirmed (YYYY-MM-DD):
+        - Consent for sensitive info (yes/no):
+
+        ## Entry Rules
+        - Use only confirmed information.
+        - Require explicit consent before storing sensitive data.
+        - Prefer specific, testable preferences over vague traits.
+
         ## Identity
         - Preferred name:
         - Full name:

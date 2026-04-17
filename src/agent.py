@@ -2,7 +2,7 @@ from langchain.agents import create_agent
 from langgraph.checkpoint.memory import InMemorySaver
 from langchain_tavily import TavilySearch
 
-from src.config.model import main_agent_model
+from src.config.model import openai_model , gemini_model
 from src.config.mcp import mcp_tools
 from src.meta_prompt import get_meta_prompt
 from src.prompts.working_instruction_prompt import get_working_instruction_prompt
@@ -26,9 +26,10 @@ system_prompt = (
 # Create and export agent for LangGraph with MCP tools
 # Run with: langgraph dev --allow-blocking
 agent = create_agent(
-    model=main_agent_model,
+    model=openai_model,
     system_prompt=system_prompt,
     tools=tools,
     name="main_agent",
     # checkpointer=checkpointer,
+    debug=True
 )
